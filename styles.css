@@ -210,7 +210,7 @@ a { color: inherit; text-decoration: none; }
 .ekg-line {
   stroke-dasharray: 320;
   stroke-dashoffset: 320;
-  animation: drawEKG 1.4s ease-out forwards 0.2s;
+  animation: drawEKG 0.8s ease-out forwards 0.1s;
 }
 @media (prefers-reduced-motion: reduce) {
   .ekg-line { animation: none; stroke-dashoffset: 0; }
