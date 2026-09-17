@@ -15,11 +15,11 @@
     '</div>';
   document.body.appendChild(overlay);
 
-  // Fade out overlay after 0.8 s, remove after transition
+  // Start fading overlay at 3.2 s, remove after 0.6 s fade
   setTimeout(function () {
     overlay.classList.add('wc-fade');
-    setTimeout(function () { overlay.remove(); }, 350);
-  }, 800);
+    setTimeout(function () { overlay.remove(); }, 600);
+  }, 3200);
 
   /* ── Confetti canvas ─────────────────────────────────── */
   const canvas = document.createElement('canvas');
@@ -44,8 +44,8 @@
   window.addEventListener('resize', resize, { passive: true });
 
   var COLORS   = ['#FF6B35', '#FFB347', '#FFD166', '#FF85C1', '#5DADE2', '#A78BFA', '#34D399', '#FB923C'];
-  var COUNT    = 100;
-  var DURATION = 2200; // ms until confetti fully fades
+  var COUNT    = 130;
+  var DURATION = 5000; // ms — outlasts overlay so confetti plays over the revealed page
 
   var pieces = [];
   for (var i = 0; i < COUNT; i++) {
