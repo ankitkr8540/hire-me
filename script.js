@@ -44,8 +44,8 @@
   window.addEventListener('resize', resize, { passive: true });
 
   var COLORS   = ['#FF6B35', '#FFB347', '#FFD166', '#FF85C1', '#5DADE2', '#A78BFA', '#34D399', '#FB923C'];
-  var COUNT    = 220;
-  var DURATION = 4000; // ms until confetti fully fades
+  var COUNT    = 100;
+  var DURATION = 2200; // ms until confetti fully fades
 
   var pieces = [];
   for (var i = 0; i < COUNT; i++) {
