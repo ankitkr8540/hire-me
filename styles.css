@@ -1,0 +1,252 @@
+/* ============================================================
+   Ankit Kumar — Marathon Landing Page
+   styles.css · Mobile-first · System fonts · No dependencies
+   ============================================================ */
+
+/* ---------- Design tokens ---------- */
+:root {
+  --bg:           #FAF8F5;
+  --navy:         #0F1B33;
+  --accent:       #FF6B35;
+  --accent-dark:  #E05A25;
+  --accent-light: #FFF3EE;
+  --accent-mid:   #FFE0D0;
+  --green:        #22C55E;
+  --green-light:  #DCFCE7;
+  --text-muted:   #5A6478;
+  --white:        #FFFFFF;
+  --border:       rgba(15, 27, 51, 0.10);
+  --shadow-sm:    0 1px 4px rgba(15,27,51,0.06), 0 4px 16px rgba(15,27,51,0.06);
+  --shadow-md:    0 2px 8px rgba(15,27,51,0.06), 0 8px 32px rgba(15,27,51,0.08);
+  --radius-pill:  999px;
+  --font:         -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto,
+                  'Helvetica Neue', Arial, sans-serif;
+  --max-width:    1080px;
+}
+
+/* ---------- Reset ---------- */
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+html { scroll-behavior: smooth; }
+@media (prefers-reduced-motion: reduce) { html { scroll-behavior: auto; } }
+
+body {
+  font-family: var(--font);
+  background: var(--bg);
+  color: var(--navy);
+  line-height: 1.6;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+img, svg { display: block; max-width: 100%; }
+a { color: inherit; text-decoration: none; }
+
+/* ---------- Skip link ---------- */
+.skip-link {
+  position: absolute; top: -100%; left: 1rem; z-index: 9999;
+  padding: 0.75rem 1.25rem;
+  background: var(--navy); color: var(--white);
+  border-radius: 8px; font-weight: 600; font-size: 0.9rem;
+  transition: top 0.2s ease;
+}
+.skip-link:focus { top: 1rem; outline: 3px solid var(--accent); outline-offset: 2px; }
+
+/* ---------- Focus ---------- */
+:focus-visible { outline: 3px solid var(--accent); outline-offset: 3px; border-radius: 4px; }
+
+/* ---------- Container ---------- */
+.container {
+  width: 100%; max-width: var(--max-width);
+  margin-inline: auto; padding-inline: 1.25rem;
+}
+@media (min-width: 640px)  { .container { padding-inline: 2rem; } }
+@media (min-width: 1024px) { .container { padding-inline: 3rem; } }
+
+/* ============================================================
+   HERO
+   ============================================================ */
+.hero {
+  min-height: 100svh;
+  display: flex;
+  align-items: center;
+  padding-block: 2.5rem;
+  position: relative;
+  overflow: hidden;
+}
+
+/* Soft coral glow — top right */
+.hero::before {
+  content: '';
+  position: absolute; top: -10%; right: -15%;
+  width: min(60vw, 420px); height: min(60vw, 420px);
+  background: radial-gradient(circle, var(--accent-light) 0%, transparent 70%);
+  border-radius: 50%; pointer-events: none; z-index: 0;
+}
+
+.hero__inner {
+  position: relative; z-index: 1;
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 2.5rem;
+  align-items: center;
+}
+
+@media (min-width: 860px) {
+  .hero__inner { grid-template-columns: 1fr auto; gap: 3rem; }
+}
+
+.hero__text {
+  display: flex; flex-direction: column; gap: 1.1rem;
+  animation: fadeUp 0.5s ease both;
+}
+@media (prefers-reduced-motion: reduce) { .hero__text { animation: none; } }
+
+/* ---------- Badges ---------- */
+.badge {
+  display: inline-flex; align-items: center; gap: 0.45rem;
+  border-radius: var(--radius-pill);
+  font-size: 0.82rem; font-weight: 600;
+  padding: 0.35rem 0.85rem; width: fit-content;
+}
+.badge--fun       { background: var(--accent-light); color: var(--accent-dark); border: 1.5px solid var(--accent-mid); }
+.badge--available { background: var(--green-light); color: #15803D; border: 1.5px solid #BBF7D0; }
+
+.badge__dot {
+  width: 7px; height: 7px; border-radius: 50%;
+  background: var(--green); flex-shrink: 0;
+  animation: pulse 2s infinite;
+}
+@media (prefers-reduced-motion: reduce) { .badge__dot { animation: none; } }
+
+/* ---------- Hero type ---------- */
+.hero__name {
+  font-size: clamp(2.6rem, 8vw, 4.2rem);
+  font-weight: 900; line-height: 1.1; letter-spacing: -0.04em;
+}
+.accent { color: var(--accent); }
+
+.hero__tagline {
+  font-size: clamp(1.05rem, 2.5vw, 1.3rem);
+  font-weight: 600; line-height: 1.4;
+}
+
+.hero__intro {
+  font-size: clamp(0.95rem, 2vw, 1.05rem);
+  color: var(--text-muted); max-width: 52ch; line-height: 1.65;
+}
+
+/* ---------- Buttons ---------- */
+.hero__cta {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 0.65rem;
+  margin-top: 0.5rem;
+}
+
+/* LinkedIn spans full width — always the dominant action */
+.hero__cta .btn--primary {
+  grid-column: 1 / -1;
+}
+
+@media (min-width: 480px) {
+  .hero__cta { grid-template-columns: repeat(3, auto); }
+  .hero__cta .btn--primary { grid-column: 1 / -1; }
+}
+
+@media (min-width: 860px) {
+  .hero__cta { grid-template-columns: unset; display: flex; flex-wrap: wrap; }
+  .hero__cta .btn--primary { grid-column: unset; }
+}
+
+.btn {
+  display: inline-flex; align-items: center; justify-content: center; gap: 0.5rem;
+  padding: 0.75rem 1.35rem; min-height: 48px;
+  border-radius: var(--radius-pill); font-family: var(--font);
+  font-size: 0.9rem; font-weight: 700; letter-spacing: 0.01em;
+  border: 2px solid transparent; white-space: nowrap; cursor: pointer;
+  transition: background 0.2s ease, color 0.2s ease, border-color 0.2s ease,
+              box-shadow 0.2s ease, transform 0.2s ease;
+}
+@media (prefers-reduced-motion: reduce) { .btn { transition: none; } }
+
+.btn--primary {
+  background: var(--accent); color: var(--white);
+  box-shadow: 0 4px 14px rgba(255,107,53,0.35);
+  font-size: 1rem; padding: 0.85rem 1.6rem;
+}
+.btn--primary:hover  { background: var(--accent-dark); box-shadow: 0 6px 20px rgba(255,107,53,0.45); transform: translateY(-1px); }
+.btn--primary:active { transform: translateY(0); }
+
+.btn--secondary {
+  background: var(--white); color: var(--navy);
+  border-color: var(--border); box-shadow: var(--shadow-sm);
+}
+.btn--secondary:hover { border-color: var(--accent); color: var(--accent); box-shadow: var(--shadow-md); transform: translateY(-1px); }
+
+.btn--ghost { background: transparent; color: var(--text-muted); border-color: var(--border); }
+.btn--ghost:hover { background: var(--white); color: var(--navy); border-color: var(--navy); }
+
+.btn__icon { width: 18px; height: 18px; flex-shrink: 0; }
+
+/* ---------- Runner SVG ---------- */
+.hero__illustration { display: flex; justify-content: center; align-items: center; }
+
+.runner-svg {
+  width: min(260px, 80vw); height: auto;
+  filter: drop-shadow(0 8px 24px rgba(255,107,53,0.15));
+  animation: floatY 4s ease-in-out infinite;
+}
+@media (prefers-reduced-motion: reduce) { .runner-svg { animation: none; } }
+@media (min-width: 860px) { .runner-svg { width: 280px; } }
+
+/* ============================================================
+   FOOTER
+   ============================================================ */
+.footer {
+  background: var(--bg);
+  border-top: 1.5px solid var(--border);
+  padding-block: 1.5rem;
+  font-size: 0.88rem;
+  color: var(--text-muted);
+}
+
+.footer__inner {
+  display: flex; flex-direction: column;
+  align-items: center; gap: 0.85rem; text-align: center;
+}
+@media (min-width: 640px) {
+  .footer__inner { flex-direction: row; justify-content: space-between; text-align: left; align-items: center; }
+}
+
+.footer__brand { display: flex; flex-direction: column; gap: 0.1rem; }
+.footer__brand strong { color: var(--navy); font-weight: 700; }
+
+.footer__links { display: flex; gap: 1.25rem; align-items: center; }
+.footer__links a {
+  display: inline-flex; align-items: center; gap: 0.35rem;
+  font-weight: 600; color: var(--text-muted);
+  transition: color 0.2s ease;
+}
+@media (prefers-reduced-motion: reduce) { .footer__links a { transition: none; } }
+.footer__links a:hover { color: var(--accent); }
+.footer__links svg { width: 16px; height: 16px; }
+
+.footer__note { font-size: 0.78rem; font-style: italic; opacity: 0.7; }
+
+/* ============================================================
+   ANIMATIONS
+   ============================================================ */
+@keyframes fadeUp {
+  from { opacity: 0; transform: translateY(16px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes pulse {
+  0%, 100% { box-shadow: 0 0 0 0 rgba(34,197,94,0.6); }
+  50%       { box-shadow: 0 0 0 5px rgba(34,197,94,0); }
+}
+
+@keyframes floatY {
+  0%, 100% { transform: translateY(0); }
+  50%       { transform: translateY(-10px); }
+}
