@@ -186,139 +186,66 @@
           </div>
           <!-- /hero__text -->
 
-          <!-- ── Illustration ── -->
+          <!-- ── Illustration: heartbeat → neural network ── -->
           <div class="hero__illustration" aria-hidden="true">
             <svg
-              class="runner-svg"
-              viewBox="0 0 220 200"
+              class="hero-visual"
+              viewBox="0 0 260 180"
               xmlns="http://www.w3.org/2000/svg"
             >
-              <ellipse
-                cx="128"
-                cy="175"
-                rx="55"
-                ry="8"
-                fill="#0F1B33"
-                opacity="0.06"
-              />
-              <line
-                x1="30"
-                y1="162"
-                x2="200"
-                y2="162"
-                stroke="#0F1B33"
-                stroke-width="2"
-                stroke-linecap="round"
-                opacity="0.10"
-              />
+              <!-- Soft background blob -->
+              <ellipse cx="130" cy="90" rx="122" ry="84" fill="#FFF3EE" opacity="0.72"/>
 
-              <line
-                x1="14"
-                y1="72"
-                x2="60"
-                y2="72"
-                stroke="#FF6B35"
-                stroke-width="3"
-                stroke-linecap="round"
-                opacity="0.45"
-              />
-              <line
-                x1="6"
-                y1="87"
-                x2="54"
-                y2="87"
-                stroke="#FF6B35"
-                stroke-width="2.5"
-                stroke-linecap="round"
-                opacity="0.28"
-              />
-              <line
-                x1="18"
-                y1="102"
-                x2="58"
-                y2="102"
-                stroke="#FF6B35"
-                stroke-width="2"
-                stroke-linecap="round"
-                opacity="0.15"
-              />
+              <!-- EKG / heartbeat line (flat → P → QRS → T → baseline) -->
+              <path class="ekg-line"
+                d="M 10 90 L 44 90 L 50 90 L 55 78 L 58 90
+                   L 63 90 L 67 46 L 72 122 L 77 70 L 81 90
+                   L 86 90 L 90 84 L 94 90 L 100 90"
+                stroke="#FF6B35" stroke-width="2.5" fill="none"
+                stroke-linecap="round" stroke-linejoin="round"/>
 
-              <rect
-                x="192"
-                y="35"
-                width="3.5"
-                height="127"
-                fill="#0F1B33"
-                opacity="0.20"
-                rx="1.5"
-              />
-              <path
-                d="M 195.5 62 Q 203 68 195.5 76 Q 203 84 195.5 92 Q 203 100 195.5 108"
-                stroke="#FF6B35"
-                stroke-width="3"
-                fill="none"
-                stroke-linecap="round"
-                opacity="0.55"
-              />
+              <!-- Pivot node — where EKG becomes network -->
+              <circle cx="100" cy="90" r="5.5" fill="#FF6B35"/>
 
-              <circle cx="152" cy="38" r="12" fill="#FF6B35" />
-              <line
-                x1="148"
-                y1="50"
-                x2="134"
-                y2="84"
-                stroke="#FF6B35"
-                stroke-width="6"
-                stroke-linecap="round"
-              />
-              <path
-                d="M 144 64 Q 158 58 165 63"
-                stroke="#FF6B35"
-                stroke-width="4.5"
-                stroke-linecap="round"
-                fill="none"
-              />
-              <path
-                d="M 144 64 Q 128 60 118 68"
-                stroke="#FF6B35"
-                stroke-width="4.5"
-                stroke-linecap="round"
-                fill="none"
-              />
-              <polyline
-                points="134,84 116,116 122,150"
-                stroke="#FF6B35"
-                stroke-width="5.5"
-                stroke-linecap="round"
-                stroke-linejoin="round"
-                fill="none"
-              />
-              <line
-                x1="122"
-                y1="150"
-                x2="108"
-                y2="156"
-                stroke="#FF6B35"
-                stroke-width="4.5"
-                stroke-linecap="round"
-              />
-              <polyline
-                points="134,84 150,114 168,138"
-                stroke="#FF6B35"
-                stroke-width="5.5"
-                stroke-linecap="round"
-                stroke-linejoin="round"
-                fill="none"
-              />
-              <line
-                x1="168"
-                y1="138"
-                x2="178"
-                y2="150"
-                stroke="#FF6B35"
-                stroke-width="4.5"
-                stroke-linecap="round"
-              />
+              <!-- Layer 1 → Layer 2 -->
+              <line x1="100" y1="90" x2="145" y2="55"  stroke="#0F1B33" stroke-width="1.5" opacity="0.15"/>
+              <line x1="100" y1="90" x2="145" y2="90"  stroke="#0F1B33" stroke-width="1.5" opacity="0.15"/>
+              <line x1="100" y1="90" x2="145" y2="125" stroke="#0F1B33" stroke-width="1.5" opacity="0.15"/>
+
+              <!-- Layer 2 nodes -->
+              <circle cx="145" cy="55"  r="5" fill="#FF6B35" opacity="0.82"/>
+              <circle cx="145" cy="90"  r="5" fill="#FF6B35" opacity="0.82"/>
+              <circle cx="145" cy="125" r="5" fill="#FF6B35" opacity="0.82"/>
+
+              <!-- Layer 2 → Layer 3 -->
+              <line x1="145" y1="55"  x2="190" y2="45"  stroke="#0F1B33" stroke-width="1.5" opacity="0.11"/>
+              <line x1="145" y1="55"  x2="190" y2="75"  stroke="#0F1B33" stroke-width="1.5" opacity="0.11"/>
+              <line x1="145" y1="55"  x2="190" y2="105" stroke="#0F1B33" stroke-width="1.5" opacity="0.11"/>
+              <line x1="145" y1="90"  x2="190" y2="45"  stroke="#0F1B33" stroke-width="1.5" opacity="0.11"/>
+              <line x1="145" y1="90"  x2="190" y2="75"  stroke="#0F1B33" stroke-width="1.5" opacity="0.11"/>
+              <line x1="145" y1="90"  x2="190" y2="105" stroke="#0F1B33" stroke-width="1.5" opacity="0.11"/>
+              <line x1="145" y1="90"  x2="190" y2="135" stroke="#0F1B33" stroke-width="1.5" opacity="0.11"/>
+              <line x1="145" y1="125" x2="190" y2="75"  stroke="#0F1B33" stroke-width="1.5" opacity="0.11"/>
+              <line x1="145" y1="125" x2="190" y2="105" stroke="#0F1B33" stroke-width="1.5" opacity="0.11"/>
+              <line x1="145" y1="125" x2="190" y2="135" stroke="#0F1B33" stroke-width="1.5" opacity="0.11"/>
+
+              <!-- Layer 3 nodes -->
+              <circle cx="190" cy="45"  r="4.5" fill="#FF6B35" opacity="0.62"/>
+              <circle cx="190" cy="75"  r="4.5" fill="#FF6B35" opacity="0.62"/>
+              <circle cx="190" cy="105" r="4.5" fill="#FF6B35" opacity="0.62"/>
+              <circle cx="190" cy="135" r="4.5" fill="#FF6B35" opacity="0.62"/>
+
+              <!-- Layer 3 → Output -->
+              <line x1="190" y1="45"  x2="232" y2="72"  stroke="#0F1B33" stroke-width="1.5" opacity="0.13"/>
+              <line x1="190" y1="75"  x2="232" y2="72"  stroke="#0F1B33" stroke-width="1.5" opacity="0.13"/>
+              <line x1="190" y1="105" x2="232" y2="108" stroke="#0F1B33" stroke-width="1.5" opacity="0.13"/>
+              <line x1="190" y1="135" x2="232" y2="108" stroke="#0F1B33" stroke-width="1.5" opacity="0.13"/>
+              <line x1="190" y1="45"  x2="232" y2="108" stroke="#0F1B33" stroke-width="1.5" opacity="0.07"/>
+              <line x1="190" y1="135" x2="232" y2="72"  stroke="#0F1B33" stroke-width="1.5" opacity="0.07"/>
+
+              <!-- Output nodes -->
+              <circle cx="232" cy="72"  r="6" fill="#FF6B35" opacity="0.95"/>
+              <circle cx="232" cy="108" r="6" fill="#FF6B35" opacity="0.42"/>
             </svg>
           </div>
         </div>
