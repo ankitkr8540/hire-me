@@ -19,7 +19,7 @@
   setTimeout(function () {
     overlay.classList.add('wc-fade');
     setTimeout(function () { overlay.remove(); }, 1500);
-  }, 5000);
+  }, 2500);
 
   /* ── Confetti canvas ─────────────────────────────────── */
   const canvas = document.createElement('canvas');
